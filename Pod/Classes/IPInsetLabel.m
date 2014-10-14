@@ -63,17 +63,20 @@
 
 - (void)resizeHeightToFitText
 {
-    CGRect frame = [self bounds];
-    CGFloat textWidth = frame.size.width - (self.insets.left + self.insets.right);
+	CGRect frame = [self bounds];
+	CGFloat textWidth = ceilf(frame.size.width) - (self.insets.left + self.insets.right);
 	if (self.preferredMaxLayoutWidth > 0.0f) {
 		CGFloat maxWidthDiff = ceilf(frame.size.width) - self.preferredMaxLayoutWidth;
 		self.preferredMaxLayoutWidth = textWidth - maxWidthDiff;
 	}
 
-    CGRect newSize = [self.text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.font} context:nil];
+	CGRect newSize = [self.text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX)
+											 options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+										  attributes:@{NSFontAttributeName : self.font}
+											 context:nil];
 
-    frame.size.height = newSize.size.height + self.insets.top + self.insets.bottom;
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, frame.size.width, frame.size.height);
+	frame.size.height = ceilf(newSize.size.height) + self.insets.top + self.insets.bottom + 10.0;
+	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, frame.size.width, frame.size.height);
 }
 
 
