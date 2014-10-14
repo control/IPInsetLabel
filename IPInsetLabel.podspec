@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "IPInsetLabel"
-  s.version          = "0.1.0"
+  s.version          = "1.1.0"
   s.summary          = "A simple UILabel subclass that adds padding insets and auto-height-resizing"
   s.description      = <<-DESC
                       IPInsetLabel is a simple UILabel subclass that adds padding insets and
