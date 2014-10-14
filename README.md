@@ -1,7 +1,7 @@
 # IPInsetLabel
 A simple UILabel subclass that adds padding insets, auto-height-resizing, and vertical alignment.
 
-From https://gist.github.com/marcoarment/2596057
+From https://gist.github.com/marcoarment/2596057 and @soffes/SAMLabel
 
 With modifications from comments
 
@@ -33,6 +33,7 @@ it, simply add the following line to your Podfile:
 @jeebster
 @bomalley
 @danomatika
+@soffes
 @doublerebel
 
 ## License
