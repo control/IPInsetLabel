@@ -1,5 +1,5 @@
 # IPInsetLabel
-A simple UILabel subclass that adds padding insets and auto-height-resizing
+A simple UILabel subclass that adds padding insets, auto-height-resizing, and vertical alignment.
 
 From https://gist.github.com/marcoarment/2596057
 
@@ -15,7 +15,8 @@ Wrapped into a Cocoapod on GitHub for easy installation and collaborative sustai
 
 ## Usage
 
-    self.insetLabel.insets = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.insetLabel.insets = UIEdgeInsetsMake(8, 16, 12, 16); // top, left, bottom, right
+    self.insetLabel.IPInsetLabelVerticalTextAlignment = UIControlContentVerticalAlignmentBottom;
 
 ## Requirements
 
