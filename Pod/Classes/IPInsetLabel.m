@@ -21,7 +21,7 @@
 	[self setNeedsLayout];
 }
 
-- (void)setTextEdgeInsets:(UIEdgeInsets)insets {
+- (void)setInsets:(UIEdgeInsets)insets {
 	_insets = insets;
 	[self setNeedsLayout];
 }
