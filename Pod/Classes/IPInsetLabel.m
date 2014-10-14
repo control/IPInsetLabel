@@ -23,6 +23,7 @@
 
 - (void)setInsets:(UIEdgeInsets)insets {
 	_insets = insets;
+	[self resizeHeightToFitText];
 	[self setNeedsLayout];
 }
 
@@ -64,6 +65,10 @@
 {
     CGRect frame = [self bounds];
     CGFloat textWidth = frame.size.width - (self.insets.left + self.insets.right);
+	if (self.preferredMaxLayoutWidth > 0.0f) {
+		CGFloat maxWidthDiff = ceilf(frame.size.width) - self.preferredMaxLayoutWidth;
+		self.preferredMaxLayoutWidth = textWidth - maxWidthDiff;
+	}
 
     CGRect newSize = [self.text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.font} context:nil];
 
