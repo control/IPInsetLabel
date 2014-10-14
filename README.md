@@ -16,7 +16,7 @@ Wrapped into a Cocoapod on GitHub for easy installation and collaborative sustai
 ## Usage
 
     self.insetLabel.insets = UIEdgeInsetsMake(8, 16, 12, 16); // top, left, bottom, right
-    self.insetLabel.IPInsetLabelVerticalTextAlignment = UIControlContentVerticalAlignmentBottom;
+    self.insetLabel.verticalTextAlignment = UIControlContentVerticalAlignmentBottom;
 
 ## Requirements
 
