@@ -44,6 +44,13 @@
 	return self;
 }
 
+- (CGSize)intrinsicContentSize
+{
+    CGSize contentSize = [super intrinsicContentSize];
+
+    return CGSizeMake(contentSize.width + _insets.left + _insets.right,
+                      contentSize.height + _insets.top + _insets.bottom);
+}
 
 #pragma mark - UILabel
 
