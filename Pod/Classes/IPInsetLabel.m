@@ -44,13 +44,6 @@
 	return self;
 }
 
-- (CGSize)intrinsicContentSize
-{
-    CGSize contentSize = [super intrinsicContentSize];
-
-    return CGSizeMake(contentSize.width + _insets.left + _insets.right,
-                      contentSize.height + _insets.top + _insets.bottom);
-}
 
 #pragma mark - UILabel
 
@@ -84,6 +77,13 @@
 
 	frame.size.height = ceilf(newSize.size.height) + self.insets.top + self.insets.bottom + 10.0;
 	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, frame.size.width, frame.size.height);
+}
+
+- (CGSize)sizeThatFits:(CGSize)size {
+    CGFloat widthInsets = _insets.left+_insets.right;
+    CGFloat heightInsets = _insets.top+_insets.bottom;
+    CGSize resultSize = [super sizeThatFits:CGSizeMake(size.width- widthInsets, size.height- heightInsets)];
+    return CGSizeMake(resultSize.width+widthInsets, resultSize.height+heightInsets);
 }
 
 
